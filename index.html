@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى أغلى ما في حياتي ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #2b1b24, #1a0f16);
+            color: #fce4ec;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(white 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            color: #ff80ab;
+            text-shadow: 0 2px 10px rgba(255, 128, 171, 0.3);
+        }
+        p.subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: #d1c4e9;
+        }
+        .card-box {
+            background: rgba(43, 29, 38, 0.85);
+            border: 1px solid rgba(255, 128, 171, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .card-box h2 {
+            color: #ff80ab;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .time-card {
+            background: rgba(60, 40, 52, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 128, 171, 0.3);
+        }
+        .time-card span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff4081;
+        }
+        .time-card label {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+        .reason-box {
+            background: rgba(50, 32, 43, 0.9);
+            border: 2px dashed #ff80ab;
+            padding: 20px;
+            border-radius: 15px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #fff;
+            text-align: center;
+        }
+        button.love-btn {
+            background: linear-gradient(135deg, #ff4081, #c51162);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+        }
+        button.love-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6);
+        }
+        .quiz-question {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #f8bbd0;
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .quiz-btn {
+            background: rgba(60, 40, 52, 0.9);
+            border: 1px solid #ff80ab;
+            color: #fce4ec;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .quiz-btn:hover {
+            background: #ff80ab;
+            color: #2b1b24;
+        }
+        #quizResult {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ff4081;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .photo-card {
+            background: rgba(60, 40, 52, 0.9);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 128, 171, 0.2);
+            padding: 10px;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .photo-card p {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+        }
+        @media (max-width: 600px) {
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>إلى أعز الناس على قلبي ❤️</h1>
+        <p class="subtitle">كل ثانية وأنا معاكي بيتعوض فيها عمري كله</p>
+
+        <!-- 1. العداد الزمني من 8 أغسطس -->
+        <div class="card-box">
+            <h2>⏳ وقتنا مع بعض من 8 أغسطس</h2>
+            <div class="countdown-grid">
+                <div class="time-card">
+                    <span id="days">0</span>
+                    <label>يوم</label>
+                </div>
+                <div class="time-card">
+                    <span id="hours">0</span>
+                    <label>ساعة</label>
+                </div>
+                <div class="time-card">
+                    <span id="minutes">0</span>
+                    <label>دقيقة</label>
+                </div>
+                <div class="time-card">
+                    <span id="seconds">0</span>
+                    <label>ثانية</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. برطمان الأسباب (بدون أقام) -->
+        <div class="card-box">
+            <h2>🫙 برطمان ليه بحبك</h2>
+            <p style="font-size: 0.9rem; color: #d1c4e9; margin-top: 5px;">اضغطي على الزرار واكتشفي سبب جديد من قلبي ✨</p>
+            <div class="reason-box" id="reasonDisplay">اضغطي الزرار وابدئي الرحلة... 💌</div>
+            <button class="love-btn" onclick="showRandomReason()">اعرض سبب جديد ✨</button>
+        </div>
+
+        <!-- 3. لعبة اختبار الحب الخفيف -->
+        <div class="card-box">
+            <h2>✨ سؤال سريع لعيونك</h2>
+            <div class="quiz-question">تفتكري مين بيحب التاني أكتر؟ 😉</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(1)">أنا طبعاً! ❤️</button>
+                <button class="quiz-btn" onclick="checkAnswer(2)">إنتَ من غير كلام! 🥰</button>
+                <button class="quiz-btn" onclick="checkAnswer(3)">إحنا الاتنين مجانين ببعض وبنفس القيمة! ✨</button>
+            </div>
+            <div id="quizResult"></div>
+        </div>
+
+        <!-- 4. قسم الصور -->
+        <div class="card-box">
+            <h2>📸 أحلى ذكرياتنا مع بعض</h2>
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <img src="photo1.jpg" alt="صورة لنا">
+                    <p>أجمل ضحكة في الدنيا ❤️</p>
+                </div>
+                <div class="photo-card">
+                    <img src="photo2.jpg" alt="صورة لنا">
+                    <p>أحلى أيام عشناها سوا ✨</p>
+                </div>
+                <div class="photo-card">
+                    <img src="photo3.jpg" alt="صورة لنا">
+                    <p>ربنا ما يحرمني منك أبداً 🥰</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // العداد الزمني (محسوب بدقة من 8 أغسطس 2026، لو تقصد 2025 غيرها لـ 2025)
+        const startDate = new Date(2026, 7, 8, 0, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = now - startDate;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+            } else {
+                document.getElementById("days").innerText = 0;
+                document.getElementById("hours").innerText = 0;
+                document.getElementById("minutes").innerText = 0;
+                document.getElementById("seconds").innerText = 0;
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 50 سبب بدون أرقام
+        const reasons = [
+            "بحب ضحكتك اللي بتنور أي مكان بنكون فيه.",
+            "دايماً بتكوني سند ليا وبتدعميني في كل خطوة.",
+            "طيبة قلبك وحنيتك اللي ملهاش مثيل.",
+            "الكلام معاكي بيخليني أنسى أي تعب في يومي.",
+            "بحب عيونك وطريقة كلامك الهادية.",
+            "معكيش بحتاج أتظاهر بأي حاجة، بكون على طبيعتي جداً.",
+            "وجودك في حياتي هو أحلى حاجة حصلتلي.",
+            "صوتك بيبعت الراحة والهدوء في قلبي مهما كان يومي صعب.",
+            "بتفهميني من نظرة واحدة من غير ما أتكلم.",
+            "طريقتك الحلوة وأنتِ بتعاتبيني أو بتتناقشي معايا.",
+            "بتهتمي بتفاصيلي الصغيرة اللي محدش غيرك بياخد باله منها.",
+            "غيرتك وطيبتك اللي بتخليني أحب الدنيا بوجودك.",
+            "بحس معاكي بالأمان والسعادة الحقيقية.",
+            "قعدتك ومحادثاتنا الطويلة اللي مابملش منها أبداً.",
+            "ضحكتك لما بقولك كلمة حلوة أو نكتة بايخة.",
+            "حبك الصادق وإخلاصك ليا.",
+            "طاقة الإيجابية اللي بتديها لي في كل وقت.",
+            "خايفة عليا ودايماً بتسألي عني.",
+            "طريقة لبسك وأناقتك والذوق العالي اللي عندك.",
+            "إصرارك وطموحك اللي بيخليني فخور بيكِ دايماً.",
+            "الحنان اللي في عيونك وأنتِ بتبصيلي.",
+            "بحب عصبية قلبك لما بتغيري عليا.",
+            "أنك دايماً بتدعي لي من قلبك.",
+            "لما بتشاركيني تفاصيل يومك الصغيرة والكبيرة.",
+            "لأنك صرتِ جزء أساسي من كل أحلامي المستقبلية.",
+            "لأنك الإنسانة الوحيدة اللي بقدر أفتح لها قلبي بكل راحة.",
+            "بحب حماسنا وإحنا بنخطط لأيامنا الجاية مع بعض.",
+            "لأنك بتعرفي تخليني أبتسم حتى وأنا في أشد حالات ضيقي.",
+            "لأن عيوبك قبل مزاياكِ بالنسبة لي حاجة مقدسة وجميلة.",
+            "رقة روحك وخفة دمك اللي بتدوب أي زعل.",
+            "لأنك بتخليني عايز أكون شخص أحسن كل يوم عشان أستاهلك.",
+            "لأنك دايماً بتشجعيني أحقق أحلامي.",
+            "بحب طيبة لسانك وحسن طريقتك مع الناس.",
+            "لأن كل لحظة بتعدي وأنا بعيد عنك بكون مشتاقلك.",
+            "لأنك بتبقي حاسة بيا حتى وأنا ساكت.",
+            "طريقة اهتمامك بأكلنا ومواعيدنا وصحتنا.",
+            "لأن اسمك لوحده بيجيب لي شعور بالدفء والاطمئنان.",
+            "لأنك أحلى صدفة وأجمل اختيار في عمري كله.",
+            "لأنك بتخلي البساطة بينا مليانة فرح وبهجة.",
+            "لأن معاكي عرفت يعني إيه ارتباط حقيقي وأمان.",
+            "حبك البسيط والصادق من غير أي تصنع.",
+            "لأنك بتعرفي تسامحيني وتعدي لي أخطائي بقلب أبيض.",
+            "لأنك أوفى إنسانة عرفتها في حياتي.",
+            "لأن معاكي حسيت إن للحياة طعم تاني خالص.",
+            "بكون فخور بيكِ قدام كل الناس.",
+            "لأنك دايماً بتفاجئيني بحاجاتك الحلوة وطيبتك.",
+            "لأن قعدتك مابتتعوضش بكنوز الدنيا دي كلها.",
+            "لأنك أملي وبنوتي وحبيبتي وكل دنيتي.",
+            "لأنك بتبسطي أبسط الأشياء بيننا وتخليها ذكرى لا تُنسى.",
+            "وببساطة.. لأنك أنتِ أنتِ، ومفيش زيك في الدنيا دي كلها! ❤️"
+        ];
+
+        function showRandomReason() {
+            const randomIndex = Math.floor(Math.random() * reasons.length);
+            document.getElementById("reasonDisplay").innerText = reasons[randomIndex];
+        }
+
+        function checkAnswer(choice) {
+            const resultDiv = document.getElementById("quizResult");
+            if(choice === 1 || choice === 2) {
+                resultDiv.innerHTML = "إجابة صحيحة بنسبة 100%.. بس الأكيد إن حبنا ملوش وصف ولا قياس! ❤️";
+            } else {
+                resultDiv.innerHTML = "صح جداً! دي حقيقة لا تقبل الشك.. ربنا يديمك ليا يا أعظم نعمة. ✨";
+            }
+        }
+    </script>
+</body>
+</html>
